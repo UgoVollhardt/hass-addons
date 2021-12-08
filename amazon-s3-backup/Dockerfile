@@ -4,6 +4,7 @@ FROM ${BUILD_FROM}
 
 # Copy root filesystem
 COPY rootfs /
+COPY requirements.txt ./
 
 # Setup base
 RUN apk add --no-cache \
@@ -11,6 +12,11 @@ RUN apk add --no-cache \
     py3-boto3@edge \
     py3-watchdog \
     py3-requests
+	
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt \
+	pip install -e . \
+	pip install boto3
 
 # Build arguments
 ARG BUILD_ARCH
