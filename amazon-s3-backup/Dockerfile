@@ -16,7 +16,6 @@ RUN apk add --no-cache \
 	
 RUN python3 -m pip install --no-cache-dir --upgrade pip
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
-RUN	python3 -m pip install -e .
 RUN	python3 -m pip install boto3
 
 # Build arguments
