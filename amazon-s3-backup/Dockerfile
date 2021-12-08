@@ -13,10 +13,10 @@ RUN apk add --no-cache \
     py3-watchdog \
     py3-requests
 	
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt \
-	pip install -e . \
-	pip install boto3
+RUN python3 pip install --no-cache-dir --upgrade pip && \
+    python3 pip install --no-cache-dir -r requirements.txt \
+	python3 pip install -e . \
+	python3 pip install boto3
 
 # Build arguments
 ARG BUILD_ARCH
